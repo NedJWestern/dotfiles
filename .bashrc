@@ -6,5 +6,5 @@ alias gs='git status'
 alias gl='git log --oneline --graph'
 alias gla='git log --oneline --graph --all'
 alias gd='git diff'
-alias ll='ls -al'
+alias ll='ls -l --all --human --color'
 
