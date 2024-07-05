@@ -1,5 +1,11 @@
 # managed by dotfiles repo in $HOME/.dotfiles/
-# https://www.atlassian.com/git/tutorials/dotfiles
+# https://github.com/NedJWestern/dotfiles/tree/master
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
 alias dgit='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias ll='ls -l --all --human --color'
 alias gfs='git fetch && git status'
