@@ -8,6 +8,8 @@ set backspace=indent,eol,start " backspace over everything in insert mode
 syntax on
 set formatoptions=1
 set lbr             " don't split words in soft linebreak
+" colorscheme slate
+" colorscheme desert
 set ruler
 
 " searching
