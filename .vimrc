@@ -25,6 +25,7 @@ set shiftwidth=4    " On pressing tab, insert 4 spaces
 set expandtab       " when indenting with '>', use 4 spaces width
 
 
+" Install vim-plug:  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 call plug#begin()
 Plug 'flazz/vim-colorschemes'
 call plug#end()
