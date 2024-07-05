@@ -6,5 +6,6 @@ alias gs='git status'
 alias gl='git log --oneline --graph'
 alias gla='git log --oneline --graph --all'
 alias gd='git diff'
-alias ll='ls -al'
-
+alias ll='ls -alh'
+alias sp='sudo podman'
+alias spps='sudo podman ps -a --format "table {{.ID}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
