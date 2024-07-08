@@ -1,6 +1,6 @@
 # Instructions:
 #
-#     rm .bashrc .vimrc
+#     rm .bash_aliases .vimrc
 #     curl --remote-name https://raw.githubusercontent.com/NedJWestern/dotfiles/master/dfinit.txt
 #     mv dfinit.txt dfinit.sh
 #     chmod +x dfinit.sh
@@ -11,4 +11,18 @@ echo ".dotfiles" > $HOME/.gitignore
 git clone --bare https://github.com/NedJWestern/dotfiles.git $HOME/.dotfiles
 git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout
 git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no
+
+# Add source bash aliases
+if ! grep -q ".bash_aliases" ~/.bashrc; then
+
+    cat << 'EOT' >> ~/.bashrc
+
+if [[ -f ~/.bash_aliases ]]
+  source ~/.bash_aliases
+fi
+
+EOT
+fi
+
+
 source .bashrc
