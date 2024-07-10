@@ -17,7 +17,7 @@ if ! grep -q ".bash_aliases" ~/.bashrc; then
 
     cat << 'EOT' >> ~/.bashrc
 
-if [[ -f ~/.bash_aliases ]]
+if [[ -f ~/.bash_aliases ]]; then
   source ~/.bash_aliases
 fi
 
