@@ -26,6 +26,7 @@ set expandtab       " when indenting with '>', use 4 spaces width
 
 
 " Install vim-plug:  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" Do: `:PlugInstall`
 call plug#begin()
 Plug 'flazz/vim-colorschemes'
 call plug#end()
