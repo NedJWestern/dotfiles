@@ -8,5 +8,6 @@ alias gl='git log --oneline --graph'
 alias gla='git log --oneline --graph --all'
 alias gd='git diff'
 alias sp='sudo podman'
+alias piup='python -m pip install --upgrade pip'
 alias spps='sudo podman ps -a --format "table {{.ID}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
 
