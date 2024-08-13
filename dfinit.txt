@@ -6,6 +6,9 @@
 #     chmod +x dfinit.sh
 #     ./dfinit.sh
 #     rm dfinit.sh
+#
+# Install vim-plug
+#    https://github.com/junegunn/vim-plug?tab=readme-ov-file#installation
 
 echo ".dotfiles" > $HOME/.gitignore
 git clone --bare https://github.com/NedJWestern/dotfiles.git $HOME/.dotfiles
