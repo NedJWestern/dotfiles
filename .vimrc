@@ -8,8 +8,6 @@ set backspace=indent,eol,start " backspace over everything in insert mode
 syntax on
 set formatoptions=1
 set lbr             " don't split words in soft linebreak
-" colorscheme slate
-" colorscheme desert
 set ruler
 
 " searching
@@ -25,19 +23,18 @@ set shiftwidth=4    " On pressing tab, insert 4 spaces
 set expandtab       " when indenting with '>', use 4 spaces width
 
 
-" Install vim-plug:  curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-" Do: `:PlugInstall`
+" https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin()
 Plug 'flazz/vim-colorschemes'
 call plug#end()
 
-" colorscheme spring-night
-" colorscheme wombat256mod
 colorscheme wombat
-" colorscheme slate
-" colorscheme desert
 
 hi Normal ctermbg=16 guibg=#000000
-" hi LineNr ctermbg=16 guibg=#000000  " what does this do?
-
 
