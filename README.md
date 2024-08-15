@@ -7,14 +7,15 @@ Inspired by [this article](https://www.atlassian.com/git/tutorials/dotfiles).
 Instructions:
 
     cd $HOME
+    # backup these files separately if necessary
     rm .bash_aliases .vimrc
     curl --silent --fail https://raw.githubusercontent.com/NedJWestern/dotfiles/master/df-init.sh | bash
     source .bashrc
 
-Manage with standard git commands using the `dfgit` alias
+Manage dotfiles with standard git commands using the `dfgit` alias
 
-    <edit .bash_alias>
-    dfgit add .bash_alias
+    <edit .bash_aliases>
+    dfgit add .bash_aliases
     dfgit commit -m 'Update bash aliases'
     dfgit push
 
