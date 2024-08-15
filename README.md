@@ -9,7 +9,7 @@ Instructions:
 
     cd $HOME
     rm .bash_aliases .vimrc
-    curl --silent --fail https://raw.githubusercontent.com/NedJWestern/dotfiles/master/df-init.txt | bash
+    curl --silent --fail https://raw.githubusercontent.com/NedJWestern/dotfiles/master/df-init.sh | bash
 
 To completely uninstall, do:
 
