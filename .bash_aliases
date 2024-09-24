@@ -2,7 +2,7 @@
 # https://github.com/NedJWestern/dotfiles/tree/master
 alias dfgit='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias ll='ls -l --all --human --color'
-alias gfs='git fetch && git status'
+alias gfs='git fetch --prune && git status'
 alias gs='git status'
 alias gl='git log --oneline --graph'
 alias gla='git log --oneline --graph --all'
