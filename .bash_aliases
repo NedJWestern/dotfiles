@@ -10,4 +10,5 @@ alias gd='git diff'
 alias piup='python -m pip install --upgrade pip'
 alias sp='sudo podman'
 alias spps='sudo podman ps -a --format "table {{.ID}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
+alias spil='sudo podman image list --sort repository'
 
