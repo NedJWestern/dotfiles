@@ -12,5 +12,5 @@ alias piup='python -m pip install --upgrade pip'
 alias sp='sudo podman'
 alias spps='sudo podman ps -a --format "table {{.ID}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
 alias spil='sudo podman image list --sort repository'
-alias nwgrep='grep --exclude-dir='\''.git'\'''
+alias nwgrep='grep --exclude-dir=".git"'
 
