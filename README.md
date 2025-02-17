@@ -22,4 +22,4 @@ Manage dotfiles with standard git commands using the `dfgit` alias
 To completely uninstall, do:
 
     cd $HOME
-    rm -rf .dotfiles REAME.md df-init.sh .bash_aliases .vimrc
+    rm -rf .dotfiles REAME.md df-init.sh .bash_aliases .vimrc .config/fish
