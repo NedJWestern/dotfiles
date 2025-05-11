@@ -1,5 +1,5 @@
 # managed by dotfiles repo in $HOME/.dotfiles/
-# https://github.com/NedJWestern/dotfiles/tree/master
+# https://github.com/NedJWestern/dotfiles/tree/master 
 alias dfgit='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias ll='ls -l --all --human --color'
 alias gfs='git fetch --prune && git status'
