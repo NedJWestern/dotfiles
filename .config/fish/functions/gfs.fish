@@ -1,3 +1,3 @@
 function gfs
-    git fetch && git status
+    git fetch --prune && git status
 end
