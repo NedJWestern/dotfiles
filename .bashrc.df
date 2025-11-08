@@ -9,11 +9,28 @@ alias gla='git log --oneline --graph --all'
 alias gd='git diff'
 alias gba='git branch -a'
 alias gcl='git config --list --show-scope'
-alias piup='python -m pip install --upgrade pip'
-alias sp='sudo podman'
 alias spps='sudo podman ps -a --format "table {{.ID}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}"'
 alias spil='sudo podman image list --sort repository'
 alias pil='podman image list --sort repository'
 alias nwgrep='grep --exclude-dir=".git" --exclude-dir=".venv"'
-alias nsudo='echo "$(pass cyberark)" | sudo -S'
+
+
+# ignore duplicates and ignore space
+export HISTCONTROL=ignoreboth
+
+# Function to set password from secure input
+set_quick_pass() {
+    echo -n "Quick password: "
+    read -s QUICK_PASS
+    export QUICK_PASS
+    echo
+    bind "\"\C-xx\": \"$QUICK_PASS\""
+}
+
+sudo_with_stored_pass() {
+    echo "$QUICK_PASS" | sudo -p '' -S "$@"
+}
+
+alias qpass='set_quick_pass'
+alias ssudo='sudo_with_stored_pass'
 

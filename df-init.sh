@@ -1,3 +1,6 @@
+# managed by dotfiles repo in $HOME/.dotfiles/
+# https://github.com/NedJWestern/dotfiles/tree/master 
+
 # exit on error
 set -e
 
@@ -15,13 +18,11 @@ git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout
 git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME config --local status.showUntrackedFiles no
 
 # Add sourcing of bash aliases
-if ! grep -q ".bash_aliases" ~/.bashrc; then
+if ! grep -q ".bashrc.df" ~/.bashrc; then
 
     cat << 'EOT' >> ~/.bashrc
 
-if [[ -f ~/.bash_aliases ]]; then
-  source ~/.bash_aliases
-fi
+source $HOME/.bashrc.df
 
 EOT
 fi
