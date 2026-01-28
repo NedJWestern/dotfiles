@@ -13,4 +13,5 @@ alias spps='sudo podman ps -a --format "table {{.ID}}\t{{.Status}}\t{{.Ports}}\t
 alias spil='sudo podman image list --sort repository'
 alias pil='podman image list --sort repository'
 alias nwgrep='grep --exclude-dir=".git" --exclude-dir=".venv"'
+alias gbmd='git branch --merged | grep -Ev "(^\*|^\+|master|main|dev)" | xargs --no-run-if-empty git branch -d'
 
