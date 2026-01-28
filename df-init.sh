@@ -1,3 +1,6 @@
+# managed by dotfiles repo in $HOME/.dotfiles/
+# https://github.com/NedJWestern/dotfiles/tree/master 
+
 # exit on error
 set -e
 
@@ -19,9 +22,7 @@ if ! grep -q ".bash_aliases" ~/.bashrc; then
 
     cat << 'EOT' >> ~/.bashrc
 
-if [[ -f ~/.bash_aliases ]]; then
-  source ~/.bash_aliases
-fi
+source $HOME/.bash_aliases
 
 EOT
 fi
