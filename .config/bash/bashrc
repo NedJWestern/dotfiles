@@ -1,6 +1,7 @@
 # Define the config directory
 BASH_CONFIG_DIR="$HOME/.config/bash"
 
+# source all config files
 for config_file in "$BASH_CONFIG_DIR"/*; do
     # Don't source this file
     if [ "$config_file" != "$BASH_CONFIG_DIR/bashrc" ]; then
@@ -10,4 +11,7 @@ done
 
 # Clean up the variable
 unset config_file
+
+# equivalent to `ignorespace:ignoredups`
+export HISTCONTROL=ignoreboth
 
