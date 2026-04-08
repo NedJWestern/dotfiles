@@ -21,12 +21,6 @@ Manage dotfiles with standard git commands using the `dfgit` alias
 
 To completely uninstall, do:
 
-    cd $HOME
-    rm -rf .dotfiles REAME.md df-init.sh .bash_aliases .vimrc .config/fish
+    curl --silent --fail https://raw.githubusercontent.com/NedJWestern/dotfiles/master/df-cleanup.sh | bash
 
-# TODO
-
-- Move to dir pattern instead? 
-
-    `~/.bashrc.d/0x-completion.sh`
 
