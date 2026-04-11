@@ -21,22 +21,5 @@ Manage dotfiles with standard git commands using the `dfgit` alias
 
 To completely uninstall, do:
 
-    cd $HOME
-    rm -rf .dotfiles REAME.md df-init.sh .bash_aliases .vimrc .config/fish
-
-
-# Alternatives
-
-GNU `stow`. Manages symlinks to a separate directory. Looks cools, but requires installing `stow` on each machine.
-
-https://tamerlan.dev/how-i-manage-my-dotfiles-using-gnu-stow/
-
-https://gist.github.com/andreibosco/cb8506780d0942a712fc
-
-
-# TODO
-
-- Move to dir pattern instead? 
-
-    `~/.bashrc.d/0x-completion.sh`
+    curl --silent --fail https://raw.githubusercontent.com/NedJWestern/dotfiles/master/df-cleanup.sh | bash
 
