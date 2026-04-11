@@ -6,20 +6,24 @@ Inspired by [this article](https://www.atlassian.com/git/tutorials/dotfiles).
 
 Instructions:
 
-    cd $HOME
-    # backup these files separately if necessary
-    rm .bash_aliases .vimrc
-    curl --silent --fail https://raw.githubusercontent.com/NedJWestern/dotfiles/master/df-init.sh | bash
-    source .bashrc
+Backup any conflicting files as necessary
+
+```bash
+curl --silent --fail https://raw.githubusercontent.com/NedJWestern/dotfiles/master/df-init.sh | bash
+```
 
 Manage dotfiles with standard git commands using the `dfgit` alias
 
-    <edit .bash_aliases>
-    dfgit add .bash_aliases
-    dfgit commit -m 'Update bash aliases'
-    dfgit push
+```bash
+<edit .bash_aliases>
+dfgit add .bash_aliases
+dfgit commit -m 'Update bash aliases'
+dfgit push
+```
 
-To completely uninstall, do:
+To completely uninstall or cleanup files, do:
 
-    curl --silent --fail https://raw.githubusercontent.com/NedJWestern/dotfiles/master/df-cleanup.sh | bash
+```bash
+curl --silent --fail https://raw.githubusercontent.com/NedJWestern/dotfiles/master/df-cleanup.sh | bash
+```
 
