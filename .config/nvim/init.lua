@@ -14,6 +14,9 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Always show the sign column to prevent text from shifting, i.e. with `ty`
+vim.opt.signcolumn = "yes"
+
 -- Ensure your leader key is set before plugins load (Space is standard)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
