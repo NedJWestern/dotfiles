@@ -186,3 +186,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
+-- vim-slime auto-scroll
+-- TODO does NOT work
+-- vim.api.nvim_create_autocmd("TermOpen", {
+--   pattern = "*",
+--   command = "startinsert",
+-- })
