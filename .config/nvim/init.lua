@@ -27,6 +27,14 @@ vim.opt.splitright = true
 -- remap ESC
 vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit insert mode' })
 
+-- dark theme
+vim.cmd.colorscheme("desert")
+
+vim.opt.number = true
+
+-- not working, blinking cursor
+-- vim.opt.guicursor:append("a:blinkon100")
+
 vim.g.clipboard = {
   name = 'OSC 52',
   copy = {
@@ -80,16 +88,16 @@ require("lazy").setup({
   --   end,
   -- },
 
-  {
-    "navarasu/onedark.nvim",
-    priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
-      require('onedark').setup {
-        style = 'darker'
-      }
-      require('onedark').load()
-    end
-  },
+  -- {
+  --   "navarasu/onedark.nvim",
+  --   priority = 1000, -- make sure to load this before all the other start plugins
+  --   config = function()
+  --     require('onedark').setup {
+  --       style = 'darker'
+  --     }
+  --     require('onedark').load()
+  --   end
+  -- },
 
   -- 1. LSP & Autocomplete (Strictly no npm)
 
@@ -169,7 +177,30 @@ require("lazy").setup({
       vim.keymap.set('x', '<C-CR>', '<Plug>SlimeRegionSend', { desc = 'Send Selection' })
 
     end
-  }
+  },
+
+  -- not working!
+  -- duckdb support
+  -- TODO this won't add autocomplete for col names etc?
+  -- {
+  --     "kristijanhusak/vim-dadbod-completion",
+  --     dependencies = {
+  --       "tpope/vim-dadbod",
+  --       "hrsh7th/nvim-cmp",
+  --     },
+  --     config = function()
+  --       local cmp = require("cmp")
+  --       -- Enable dadbod-completion specifically for SQL files
+  --       cmp.setup.filetype({ "sql" }, {
+  --         sources = {
+  --           { name = "vim-dadbod-completion" },
+  --           { name = "buffer" },
+  --         },
+  --       })
+  --     end,
+  -- },
+
+
 })
 
 -- Format Python files on save using Ruff
