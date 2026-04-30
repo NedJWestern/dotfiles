@@ -34,6 +34,7 @@ vim.opt.number = true
 
 -- not working, blinking cursor
 -- vim.opt.guicursor:append("a:blinkon100")
+vim.opt.guicursor:append("a:blinkwait700-blinkoff400-blinkon250")
 
 vim.g.clipboard = {
   name = 'OSC 52',
