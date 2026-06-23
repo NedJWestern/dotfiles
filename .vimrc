@@ -23,18 +23,19 @@ set shiftwidth=4    " On pressing tab, insert 4 spaces
 set expandtab       " when indenting with '>', use 4 spaces width
 
 
+" TODO I don't want this in every container
 " https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
+" let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+" if empty(glob(data_dir . '/autoload/plug.vim'))
+"   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+"   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" endif
+" 
+" call plug#begin()
+" Plug 'flazz/vim-colorschemes'
+" call plug#end()
 
-call plug#begin()
-Plug 'flazz/vim-colorschemes'
-call plug#end()
-
-colorscheme wombat
+colorscheme desert
 
 hi Normal ctermbg=16 guibg=#000000
 
