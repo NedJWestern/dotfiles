@@ -31,6 +31,8 @@ vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit insert mode' })
 vim.cmd.colorscheme("desert")
 
 vim.opt.number = true
+-- soft wrap whole words
+vim.opt.linebreak = true
 
 -- not working, blinking cursor
 -- vim.opt.guicursor:append("a:blinkon100")
@@ -166,11 +168,22 @@ require("lazy").setup({
       vim.g.slime_target = "neovim"
       -- Helps with indentation when pasting blocks into IPython/Python
       vim.g.slime_python_ipython = 1 
+      -- TODO test failed
+      -- vim.g.slime_bracketed_paste = 1
     end,
 
     config = function()
       -- Shortcut to open a vertical split with a python REPL
-      vim.keymap.set('n', '<leader>rp', ':vsplit | term ipython<CR>', { desc = 'Open IPython REPL' })
+      -- orig
+      -- vim.keymap.set('n', '<leader>rp', ':vsplit | term ipython<CR>', { desc = 'Open IPython REPL' })
+      -- not working
+      -- vim.keymap.set('n', '<leader>rp', ':vsplit | term ipython<CR> | wincmd h | vert resize 100', { desc = 'Open IPython REPL' })
+      vim.keymap.set('n', '<leader>rp', function()
+        vim.cmd('vsplit')
+        vim.cmd('terminal ipython')
+        vim.cmd('wincmd h')
+        vim.cmd('vertical resize 100')
+      end, { desc = 'Open IPython REPL' })
 
       -- Map Ctrl+Enter (<C-CR>) to send code
       -- NB: this doesn't work for some terminals, such as Windows Terminal
@@ -215,6 +228,18 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         return client.name == "ruff"
       end
     })
+  end,
+})
+
+-- Python: indent by 4 spaces
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "python",
+  callback = function()
+    vim.opt_local.expandtab = true
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.softtabstop = 4
+    vim.opt_local.tabstop = 4
+    -- vim.opt_local.autoindent = true
   end,
 })
 
