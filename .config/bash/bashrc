@@ -23,3 +23,13 @@ fslash() {
     cat /dev/clipboard | tr '\\' '/' > /dev/clipboard
     echo "Clipboard updated: $(cat /dev/clipboard)"
 }
+
+pps() {
+  { printf 'ID\tIMAGE\tSTATUS\tPORTS\tNAMES\n'
+    podman ps "$@" \
+        --sort names \
+        --format '{{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}'
+  } | awk -F'\t' -v OFS='\t' '{sub(/.*\//,"",$2); for(i=1;i<=NF;i++) if($i=="") $i="-"} 1' \
+    | column -t -s $'\t'
+}
+
