@@ -9,7 +9,7 @@ Instructions:
 Backup any conflicting files as necessary
 
 ```bash
-curl --silent --fail https://raw.githubusercontent.com/NedJWestern/dotfiles/master/df-init.sh | bash
+curl <path-to-raw-init-script-with-token> | bash
 ```
 
 Manage dotfiles with standard git commands using the `dfgit` alias

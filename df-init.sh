@@ -1,10 +1,9 @@
 : '
 Managed by dotfiles repo in $HOME/.dotfiles/
 
-https://github.com/NedJWestern/dotfiles/tree/master 
+https://github.com/NedJWestern/dotfiles-omarchy/tree/master 
 '
 
-# exit on error
 set -eu
 
 # TODO improve
