@@ -1,5 +1,5 @@
 alias dfgit='git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias ll=ls
+alias ll='ls -l --all --human --color'
 alias gfs='git fetch --prune && git status'
 alias gs='git status'
 alias gl='git log --oneline --graph'
