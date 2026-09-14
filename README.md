@@ -1,3 +1,7 @@
+# TODO
+
+mv omarchy to other repo
+
 # dotfiles
 
 Manage your dotfiles with git. 
