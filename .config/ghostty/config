@@ -1,0 +1,3 @@
+desktop-notifications = true
+confirm-close-surface = false
+keybind = ctrl+enter=unbind
