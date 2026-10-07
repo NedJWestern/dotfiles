@@ -27,12 +27,18 @@ vim.opt.splitright = true
 -- remap ESC
 vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit insert mode' })
 
+-- Alt+h/j/k/l: move between windows, also straight out of the terminal (REPL)
+for _, dir in ipairs({ 'h', 'j', 'k', 'l' }) do
+  vim.keymap.set('n', '<M-' .. dir .. '>', '<C-w>' .. dir, { desc = 'Window ' .. dir })
+  vim.keymap.set('t', '<M-' .. dir .. '>', '<C-\\><C-n><C-w>' .. dir, { desc = 'Window ' .. dir })
+end
+
 -- Force 24-bit colour so themes look the same in every terminal
 -- (auto-detection often fails, e.g. over SSH)
 vim.opt.termguicolors = true
 
 -- dark theme
-vim.cmd.colorscheme("desert")
+vim.cmd.colorscheme("slate")
 
 vim.opt.number = true
 -- soft wrap whole words
