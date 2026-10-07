@@ -27,6 +27,10 @@ vim.opt.splitright = true
 -- remap ESC
 vim.keymap.set('i', 'jk', '<Esc>', { desc = 'Exit insert mode' })
 
+-- Force 24-bit colour so themes look the same in every terminal
+-- (auto-detection often fails, e.g. over SSH)
+vim.opt.termguicolors = true
+
 -- dark theme
 vim.cmd.colorscheme("desert")
 
@@ -181,14 +185,20 @@ require("lazy").setup({
       vim.keymap.set('n', '<leader>rp', function()
         vim.cmd('vsplit')
         vim.cmd('terminal ipython')
+        -- Put the cursor on the last line so the REPL autoscrolls with output
+        vim.cmd('normal! G')
         vim.cmd('wincmd h')
         vim.cmd('vertical resize 100')
       end, { desc = 'Open IPython REPL' })
 
       -- Map Ctrl+Enter (<C-CR>) to send code
       -- NB: this doesn't work for some terminals, such as Windows Terminal
-      vim.keymap.set('n', '<C-CR>', '<Plug>SlimeParagraphSend', { desc = 'Send Paragraph' })
-      vim.keymap.set('x', '<C-CR>', '<Plug>SlimeRegionSend', { desc = 'Send Selection' })
+      -- Alt+Enter (<M-CR>) is the fallback for terminals like Linux Mint's default (VTE)
+      for _, lhs in ipairs({ '<C-CR>', '<M-CR>' }) do
+        vim.keymap.set('n', lhs, '<Plug>SlimeParagraphSend', { desc = 'Send Paragraph' })
+        vim.keymap.set('i', lhs, '<C-o><Plug>SlimeParagraphSend', { remap = true, desc = 'Send Paragraph' })
+        vim.keymap.set('x', lhs, '<Plug>SlimeRegionSend', { desc = 'Send Selection' })
+      end
 
     end
   },
@@ -243,9 +253,3 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- vim-slime auto-scroll
--- TODO does NOT work
--- vim.api.nvim_create_autocmd("TermOpen", {
---   pattern = "*",
---   command = "startinsert",
--- })
