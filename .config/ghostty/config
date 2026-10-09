@@ -1,3 +1,13 @@
 desktop-notifications = true
 confirm-close-surface = false
 keybind = ctrl+enter=unbind
+
+# Disable font ligatures (e.g. stop `->` rendering as an arrow, `!=` as ≠)
+# calt: contextual alternates (where most coding ligatures live)
+font-feature = -calt
+# liga: standard ligatures
+font-feature = -liga
+# dlig: discretionary ligatures
+font-feature = -dlig
+
+
