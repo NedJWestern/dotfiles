@@ -3,9 +3,11 @@
 '
 
 cd "$HOME"
+rm -rf .config/yadm
 rm -r .config/bash
 rm -r .config/fish
 rm -r .config/nushell
-rm -rf .dotfiles
-rm .gitignore .vimrc README.md df-cleanup.sh df-init.sh
+rm -rf .local/share/yadm
+rm -f .local/bin/yadm
+rm .vimrc README.md df-cleanup.sh df-init.sh
 

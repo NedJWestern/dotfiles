@@ -1,29 +1,21 @@
 : '
-Managed by dotfiles repo in $HOME/.dotfiles/
+Managed by dotfiles repo, using yadm (https://yadm.io)
 
-https://github.com/NedJWestern/dotfiles-omarchy/tree/master 
+https://github.com/NedJWestern/dotfiles-omarchy/tree/master
 '
 
 set -eu
 
-# TODO improve
-if [[ -f "$HOME"/.bash_aliases ]] || [[ -f "$HOME"/.vimrc ]]; then
-    echo ERROR: Please first remove or backup these files: .bash_aliases, .vimrc
-    exit 1
+if ! command -v yadm >/dev/null 2>&1; then
+    echo "yadm not found, installing to \$HOME/.local/bin/yadm"
+    mkdir -p "$HOME"/.local/bin
+    curl -fLo "$HOME"/.local/bin/yadm https://github.com/TheLocehiliosan/yadm/raw/master/yadm
+    chmod a+x "$HOME"/.local/bin/yadm
+    export PATH="$HOME/.local/bin:$PATH"
 fi
 
-# prevent git recursion issues
-echo ".dotfiles" > "$HOME"/.gitignore
-
-# clone and setup git repo
-git clone --bare https://github.com/NedJWestern/dotfiles.git "$HOME"/.dotfiles
-git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME" checkout
-git --git-dir="$HOME"/.dotfiles/ --work-tree="$HOME" config --local status.showUntrackedFiles no
-
-# assert line exists in bashrc
-LINE='source "$HOME"/.config/bash/bashrc'
-grep -qF "$LINE" "$HOME"/.bashrc || echo "$LINE" >> "$HOME"/.bashrc
+# clones, backs up any conflicting existing files, and runs the bootstrap script
+yadm clone --bootstrap https://github.com/NedJWestern/dotfiles.git
 
 echo
 echo "Setup complete. Restart your shell or run 'source "$HOME"/.bashrc'"
-

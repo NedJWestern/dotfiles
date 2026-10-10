@@ -1,24 +1,24 @@
 # dotfiles
 
-Manage your dotfiles with git. 
-
-Inspired by [this article](https://www.atlassian.com/git/tutorials/dotfiles).
+Manage your dotfiles with git, via [yadm](https://yadm.io).
 
 Instructions:
-
-Backup any conflicting files as necessary
 
 ```bash
 curl --silent --fail https://raw.githubusercontent.com/NedJWestern/dotfiles/master/df-init.sh | bash
 ```
 
-Manage dotfiles with standard git commands using the `dfgit` alias
+If `yadm` isn't already installed (e.g. no package manager available), it's downloaded straight into `~/.local/bin/yadm`. Make sure that directory is on your `PATH` for future shells.
+
+Any conflicting existing files are backed up automatically to `~/.local/share/yadm/backup/`.
+
+Manage dotfiles with standard git commands using `yadm`
 
 ```bash
 <edit .bash_aliases>
-dfgit add .bash_aliases
-dfgit commit -m 'Update bash aliases'
-dfgit push
+yadm add .bash_aliases
+yadm commit -m 'Update bash aliases'
+yadm push
 ```
 
 To completely uninstall or cleanup files, do:
