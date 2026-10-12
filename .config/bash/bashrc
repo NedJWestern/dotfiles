@@ -1,0 +1,36 @@
+# Define the config directory
+BASH_CONFIG_DIR="$HOME/.config/bash"
+
+# source all config files
+for config_file in "$BASH_CONFIG_DIR"/*; do
+    # Don't source this file
+    if [ "$config_file" != "$BASH_CONFIG_DIR/bashrc" ]; then
+        . "$config_file"
+    fi
+done
+
+# Clean up the variable
+unset config_file
+
+# equivalent to `ignorespace:ignoredups`
+export HISTCONTROL=ignoreboth
+# green blue yellow
+export PS1='\[\e[0;32m\]\u\[\e[0m\]@\[\e[0;34m\]\h\[\e[0m\] \[\e[0;33m\]\W\[\e[0m\] \$ '
+
+
+# Convert Windows backslashes in clipboard to forward slashes
+fslash() {
+    cat /dev/clipboard | tr '\\' '/' > /dev/clipboard
+    echo "Clipboard updated: $(cat /dev/clipboard)"
+}
+
+pps() {
+  { printf 'ID\tIMAGE\tSTATUS\tPORTS\tNAMES\n'
+    podman ps "$@" \
+        --all \
+        --sort names \
+        --format '{{.ID}}\t{{.Image}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}'
+  } | awk -F'\t' -v OFS='\t' '{sub(/.*\//,"",$2); for(i=1;i<=NF;i++) if($i=="") $i="-"} 1' \
+    | column -t -s $'\t'
+}
+
