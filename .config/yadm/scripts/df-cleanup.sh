@@ -9,5 +9,5 @@ rm -r .config/fish
 rm -r .config/nushell
 rm -rf .local/share/yadm
 rm -f .local/bin/yadm
-rm .vimrc README.md df-cleanup.sh df-init.sh
+rm .vimrc README.md
 
