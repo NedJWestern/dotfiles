@@ -1,7 +1,8 @@
+#!/usr/bin/env bash
 : '
 Managed by dotfiles repo, using yadm (https://yadm.io)
 
-https://github.com/NedJWestern/dotfiles-omarchy/tree/master
+https://github.com/NedJWestern/dotfiles
 '
 
 set -eu
