@@ -5,6 +5,7 @@ set encoding=utf-8
 set autochdir
 set number          "linenumbers
 set backspace=indent,eol,start " backspace over everything in insert mode
+set background=dark
 syntax on
 set formatoptions=1
 set lbr             " don't split words in soft linebreak

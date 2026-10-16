@@ -38,7 +38,7 @@ end
 vim.opt.termguicolors = true
 
 -- dark theme
-vim.cmd.colorscheme("slate")
+vim.cmd.colorscheme("desert")
 
 vim.opt.number = true
 -- soft wrap whole words
