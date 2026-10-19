@@ -44,19 +44,32 @@ vim.opt.number = true
 -- soft wrap whole words
 vim.opt.linebreak = true
 
--- not working, blinking cursor
--- vim.opt.guicursor:append("a:blinkon100")
-vim.opt.guicursor:append("a:blinkwait700-blinkoff400-blinkon250")
+-- Default indentation: 4-space tabs (expanded to spaces)
+vim.opt.expandtab = true
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.tabstop = 4
 
-vim.g.clipboard = {
-  name = 'OSC 52',
-  copy = {
-    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
-  },
-  paste = {
-    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
-  },
-}
+-- Blinking cursor (shape included so the terminal's DECSCUSR blink code is sent)
+vim.opt.guicursor = "n-v-c-sm:block-blinkwait700-blinkoff400-blinkon250,i-ci-ve:ver25-blinkwait700-blinkoff400-blinkon250,r-cr-o:hor20-blinkwait700-blinkoff400-blinkon250"
+
+-- Only use OSC 52 when there's no local X11/Wayland display to talk to
+-- directly (e.g. SSH'd into the dev container). Locally, let Neovim use
+-- its default xclip-based provider instead of overriding it.
+if os.getenv('DISPLAY') == nil and os.getenv('WAYLAND_DISPLAY') == nil then
+  local osc52 = require('vim.ui.clipboard.osc52')
+  vim.g.clipboard = {
+    name = 'OSC 52',
+    copy = {
+      ['+'] = osc52.copy('+'),
+      ['*'] = osc52.copy('*'),
+    },
+    paste = {
+      ['+'] = osc52.paste(),
+      ['*'] = osc52.paste(),
+    },
+  }
+end
 
 
 -- ==========================================================================
