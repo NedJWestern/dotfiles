@@ -62,11 +62,10 @@ bindkey -M viins '^S' history-incremental-search-forward
 bindkey -M viins '^[.' insert-last-word     # alt+.
 bindkey -M viins '^Q' push-line
 
-# open the line in $VISUAL/$EDITOR: v in normal mode, as in bash's vi mode,
-# or ctrl+x ctrl+e from insert mode
+# ctrl+x ctrl+e (insert mode) opens the line in $VISUAL/$EDITOR. Not bound to v
+# in normal mode, as bash's vi mode does: v stays visual mode, as in vim.
 autoload -Uz edit-command-line
 zle -N edit-command-line
-bindkey -M vicmd 'v' edit-command-line
 bindkey -M viins '^x^e' edit-command-line
 
 # text objects for quotes and brackets: ci", da(, yi{ ... (not built in)
