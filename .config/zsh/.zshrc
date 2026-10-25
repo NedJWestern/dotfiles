@@ -28,7 +28,12 @@ setopt no_beep
 
 # vi keys: start in insert mode (viins), Esc for normal mode (vicmd)
 bindkey -v
-KEYTIMEOUT=1                # Esc reaches vicmd in 10ms, not the default 400ms
+# jk leaves insert mode, as in vim. KEYTIMEOUT (in 10ms units) is how long zsh
+# waits for the k after a j, and also how long Esc waits to rule out an arrow
+# key's escape sequence: one setting, so 200ms, short enough for Esc and long
+# enough to type jk. A lone j shows up only once that time passes.
+bindkey -M viins 'jk' vi-cmd-mode
+KEYTIMEOUT=20
 
 # up/down (and k/j in normal mode) search history by the prefix already typed
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
