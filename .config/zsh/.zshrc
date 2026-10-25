@@ -36,6 +36,17 @@ bindkey '^[[A' up-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 bindkey '^[OA' up-line-or-beginning-search
 bindkey '^[OB' down-line-or-beginning-search
+# ctrl+arrows/delete/backspace by word; bash gets these from /etc/inputrc
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+bindkey '^[[3;5~' kill-word
+bindkey '^H' backward-kill-word
+# ctrl+x ctrl+e edits the line in $VISUAL/$EDITOR
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
+
+export EDITOR=nvim VISUAL=nvim
 
 # shared with bash; the file sticks to syntax both shells accept
 . "$HOME/.config/bash/aliases"
