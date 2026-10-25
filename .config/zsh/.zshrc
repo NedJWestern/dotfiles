@@ -103,4 +103,10 @@ export EDITOR=nvim VISUAL=nvim
 # green blue yellow, same as the bash PS1
 PROMPT='%F{green}%n%f@%F{blue}%m%f %F{yellow}%1~%f %# '
 
+# fzf keys: ctrl+r history, ctrl+t file path, alt+c cd. fzf < 0.48 has no --zsh,
+# but Debian ships the same script. After the vi bindings, so its ctrl+r wins.
+eval "$(fzf --zsh 2>/dev/null || cat /usr/share/doc/fzf/examples/key-bindings.zsh 2>/dev/null)"
+# z <part of a dir> jumps to the best match among dirs visited before
+(( $+commands[zoxide] )) && eval "$(zoxide init zsh)"
+
 unset ZSH_STATE_DIR ZSH_CACHE_DIR
