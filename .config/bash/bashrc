@@ -15,6 +15,13 @@ unset config_file
 # equivalent to `ignorespace:ignoredups`
 export HISTCONTROL=ignoreboth
 export EDITOR=nvim VISUAL=nvim
+
+# vi editing, with jk to leave insert mode as in vim. Interactive shells only:
+# bind warns when there's no line editor.
+if [[ $- == *i* ]]; then
+    set -o vi
+    bind -m vi-insert '"jk": vi-movement-mode'
+fi
 # green blue yellow
 PS1='\[\e[0;32m\]\u\[\e[0m\]@\[\e[0;34m\]\h\[\e[0m\] \[\e[0;33m\]\W\[\e[0m\] \$ '
 
