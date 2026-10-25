@@ -1,0 +1,5 @@
+onboarding = false
+
+[keys]
+# jump back to the previously focused pane, like tmux
+last_pane = "prefix+;"
