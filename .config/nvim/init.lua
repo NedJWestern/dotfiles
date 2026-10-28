@@ -201,14 +201,17 @@ require("lazy").setup({
       -- vim.keymap.set('n', '<leader>rp', ':vsplit | term ipython<CR>', { desc = 'Open IPython REPL' })
       -- not working
       -- vim.keymap.set('n', '<leader>rp', ':vsplit | term ipython<CR> | wincmd h | vert resize 100', { desc = 'Open IPython REPL' })
+      -- REPL to launch per filetype (falls back to IPython)
+      local repls = { r = 'R --no-save', rmd = 'R --no-save', quarto = 'R --no-save' }
       vim.keymap.set('n', '<leader>rp', function()
+        local cmd = repls[vim.bo.filetype] or 'ipython'
         vim.cmd('vsplit')
-        vim.cmd('terminal ipython')
+        vim.cmd('terminal ' .. cmd)
         -- Put the cursor on the last line so the REPL autoscrolls with output
         vim.cmd('normal! G')
         vim.cmd('wincmd h')
         vim.cmd('vertical resize 100')
-      end, { desc = 'Open IPython REPL' })
+      end, { desc = 'Open REPL (R or IPython)' })
 
       -- Map Ctrl+Enter (<C-CR>) to send code
       -- NB: this doesn't work for some terminals, such as Windows Terminal

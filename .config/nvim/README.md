@@ -2,7 +2,7 @@
 
 Cmd                 | Descr
 --                  | --
-[space] r p         | open new REPL
+[space] r p         | open new REPL (R for `.R`/`.Rmd`/`.qmd`, else IPython)
 Esc Esc Ctrl w w    | focus to editory 
 
 
@@ -10,6 +10,7 @@ Esc Esc Ctrl w w    | focus to editory
 
 - ty
 - ipython
+- R (`apt install r-base-core`)
 
 # Terminals swallowing `<C-CR>`
 
