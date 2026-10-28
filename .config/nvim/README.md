@@ -11,6 +11,7 @@ Esc Esc Ctrl w w    | focus to editory
 - ty
 - ipython
 - R (`apt install r-base-core`)
+- R package `languageserver` (`install.packages("languageserver")`; needs `r-base-dev libxml2-dev libcurl4-openssl-dev libssl-dev`)
 
 # Terminals swallowing `<C-CR>`
 

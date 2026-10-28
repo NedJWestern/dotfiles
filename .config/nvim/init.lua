@@ -170,9 +170,19 @@ require("lazy").setup({
           single_file_support = true,
         })
 
+        -- R: lspconfig falls back to $HOME as the root outside a git repo, which
+        -- makes 'languageserver' index all of ~ and hang. Use the file's folder instead.
+        vim.lsp.config("r_language_server", {
+          root_dir = function(bufnr, on_dir)
+            on_dir(vim.fs.root(bufnr, { ".git", "DESCRIPTION", ".Rprofile" })
+              or vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr)))
+          end,
+        })
+
         -- Enable the servers (This natively replaces lspconfig.SERVER.setup{})
         vim.lsp.enable("ty")
         vim.lsp.enable("ruff")
+        vim.lsp.enable("r_language_server") -- R package `languageserver`
 
         -- 3. LSP Keymaps
         vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Show Docstring (Normal)' })
