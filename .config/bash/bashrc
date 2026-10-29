@@ -16,13 +16,10 @@ unset config_file
 export HISTCONTROL=ignoreboth
 export EDITOR=nvim VISUAL=nvim
 
-# vi editing, with jk to leave insert mode as in vim. Interactive shells only:
-# bind warns when there's no line editor.
+# Interactive shells only: the key bindings warn when there's no line editor.
 if [[ $- == *i* ]]; then
-    set -o vi
-    bind -m vi-insert '"jk": vi-movement-mode'
     # fzf keys: ctrl+r history, ctrl+t file path, alt+c cd. fzf < 0.48 has no
-    # --bash, but Debian ships the same script. After set -o vi, which it reads.
+    # --bash, but Debian ships the same script.
     eval "$(fzf --bash 2>/dev/null || cat /usr/share/doc/fzf/examples/key-bindings.bash 2>/dev/null)"
     # z <part of a dir> jumps to the best match among dirs visited before
     command -v zoxide >/dev/null && eval "$(zoxide init bash)"
