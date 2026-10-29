@@ -21,8 +21,6 @@ export EDITOR=nvim VISUAL=nvim
 if [[ $- == *i* ]]; then
     set -o vi
     bind -m vi-insert '"jk": vi-movement-mode'
-    # prefix the prompt with (ins) or (cmd)
-    bind 'set show-mode-in-prompt on'
     # fzf keys: ctrl+r history, ctrl+t file path, alt+c cd. fzf < 0.48 has no
     # --bash, but Debian ships the same script. After set -o vi, which it reads.
     eval "$(fzf --bash 2>/dev/null || cat /usr/share/doc/fzf/examples/key-bindings.bash 2>/dev/null)"
