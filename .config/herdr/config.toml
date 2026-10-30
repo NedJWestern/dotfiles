@@ -1,5 +1,8 @@
 onboarding = false
 
 [keys]
+# ctrl+b (the default) shadows vim's page-up
+prefix = "ctrl+space"
+
 # jump back to the previously focused pane, like tmux
 last_pane = "prefix+;"
