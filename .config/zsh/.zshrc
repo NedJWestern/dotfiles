@@ -20,6 +20,8 @@ autoload -Uz compinit && compinit -d "$ZSH_CACHE_DIR/zcompdump"
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'  # case-insensitive
 zstyle ':completion:*' list-colors ''
+# completions for tools that generate them; skipped where the tool isn't installed
+(( $+commands[herdr] )) && eval "$(herdr completion zsh)"
 
 # behaviour
 setopt auto_cd              # bare directory name cds into it
