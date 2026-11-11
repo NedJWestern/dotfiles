@@ -296,3 +296,14 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+
+-- Shell scripts (.sh): indent with real tabs, displayed 4 wide
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.sh",
+  callback = function()
+    vim.opt_local.expandtab = false
+    vim.opt_local.shiftwidth = 0 -- follow tabstop
+    vim.opt_local.softtabstop = 0
+    vim.opt_local.tabstop = 4
+  end,
+})
