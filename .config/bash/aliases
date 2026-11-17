@@ -12,4 +12,4 @@ alias gbmd='git branch --merged | grep -Ev "(^\*|^\+|master|main|dev)" | xargs -
 alias nvim='nvim --cmd "set background=dark"'
 alias vba='. .venv/bin/activate'
 alias pathnl='echo "$PATH" | tr ":" "\n"'
-
+alias passwd2col='column -t -s: /etc/passwd'
