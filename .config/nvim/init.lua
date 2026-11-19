@@ -37,6 +37,15 @@ end
 -- (auto-detection often fails, e.g. over SSH)
 vim.opt.termguicolors = true
 
+-- MatchParen without colours: block cursors invert the cell, so a coloured
+-- MatchParen makes the cursor on a bracket take its (dark) fg colour.
+-- Registered before the colorscheme so it reapplies on every scheme load.
+vim.api.nvim_create_autocmd("ColorScheme", {
+  callback = function()
+    vim.api.nvim_set_hl(0, "MatchParen", { bold = true, underline = true })
+  end,
+})
+
 -- dark theme
 vim.cmd.colorscheme("desert")
 
